@@ -1,4 +1,3 @@
-import { Currency, Users } from "lucide-react";
 import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema({
@@ -6,8 +5,8 @@ const productSchema = new mongoose.Schema({
   currency: { type: String, required: true },
   image: { type: String, required: true },
   title: { type: String, required: true },
-  currentPrice: { type: String, required: true },
-  originalPrice: { type: String, required: true },
+  currentPrice: { type: Number, required: true },  // Changed to Number
+  originalPrice: { type: Number, required: true }, // Changed to Number
   priceHistory: [{
     price: { type: Number, required: true },
     date: { type: Date, default: Date.now }
@@ -20,7 +19,7 @@ const productSchema = new mongoose.Schema({
   category: { type: String },
   reviewsCount: { type: Number },
   isOutOfStock: { type: Boolean, default: false },
-  Users: [
+  users: [  // Changed to lowercase 'u'
     { email: { type: String, required: true } }
   ]
 }, { timestamps: true });

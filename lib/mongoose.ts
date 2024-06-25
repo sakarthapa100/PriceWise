@@ -18,11 +18,7 @@ export const connectDB = async () => {
   mongoose.set('strictQuery', true);
 
   try {
-    await mongoose.connect(mongoUri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-
+    await mongoose.connect(mongoUri);
     isConnected = true;
     console.log('MongoDB connected');
   } catch (error) {
